@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <center><h2 class="alert alert-info"><u>UPDATE FORM</u></h2></center>    <br></br>
+    <form action="/userupdate/{{data.id}}" method="post" >  
+        {% csrf_token %} 
+        <div class="mb-3">
+            <label for="firstname" class="form-label">firstname:</label>
+            <input type="text" class="form-control" id="firstname" name="firstname" value="{{data.first_name}}">
+        </div>
+        <div class="mb-3">
+            <label for="lastname" class="form-label">lastname:</label>
+            <input type="text" class="form-control" id="lastname" name="lastname" value="{{data.last_name}}">   
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">email:</label>
+            <input type="email" class="form-control" id="email" name="email"  value="{{data.email}}" disabled>
+        </div>
+       
+    </br></br>
+<center>  <button type="submit" class="btn btn-primary">Add</button> </center>
+    </form>
+    <br/></br></br></br></br></br></br></br>
+</div>
+
+{%endblock%}

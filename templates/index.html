@@ -1,0 +1,102 @@
+{%extends 'base.html'%}
+{%block content%}
+
+  
+{%for message in messages%}
+<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="btn-close"
+    data-bs-dismiss="alert"></button>
+  {{message}}
+</div>
+{%endfor%}
+
+{%if request.user.is_authenticated%}
+<center>
+  <div class="alert alert-primary" role="alert">
+    <h1 class="col col"><u>Welcome to this page</u></h1>
+  </div>
+</center>
+{%endif%}
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+      aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+      aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+      aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="img-fluid" src="https://source.unsplash.com/gySMaocSdqs/2700x1200" alt="Los Angeles" class="d-block"
+        style="width:120% ">
+    </div>
+    <div class="carousel-item">
+      <img class="img-fluid" src="https://source.unsplash.com/WLUHO9A_xik/2700x1200" alt="Chicago" class="d-block"
+        style="width:120% ">
+    </div>
+    <div class="carousel-item">
+      <img class="img-fluid" src="https://source.unsplash.com//C6oPXOatFD8/2700x1200" alt="New York" class="d-block"
+        style="width:120% ">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!-- <------card----->
+
+{%if request.user.is_authenticated%}
+<div class="index">
+  <div class="row row-cols-1 row-cols-md-3 g-4 " class="card">
+    <div class="col" style="margin-left:8%;">
+      <div class="card h-100">
+        <a href="https://www.w3schools.com/html/"><img src="/static/image/htmlcssjs.jpg" class="card-img-top" alt="..."></a>
+        <div class="card-body">
+          <h5 class="card-title">Front End Development</h5>
+          <p class="card-text">The backend is the server side of the website. It stores
+            and arranges data, and also makes sure everything on the client side of the website works fine. It is the
+            part
+            of the
+            website that you cannot see and interact with. It is the portion of software that does not come in direct
+            contact with the users. The
+            parts and characteristics designers are indirectly accessed application. Activities, like writing
+            APIs, creating libraries, and working with system components without user interfaces or programming, are
+            also
+            included in
+            the backend.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col" style="margin-left:17% ">
+      <div class="card h-100">
+        <a href="https://www.djangoproject.com/"><img src="/static/image/o.png" class="card-img-top" alt="..."></a>
+        <div class="card-body">
+          <h5 class="card-title">Back End Development</h5>
+          <p class="card-text">The backend is the server side of the website. It stores
+            and arranges data, and also makes sure everything on the client side of the website works fine. It is the
+            part
+            of the
+            website that you cannot see and interact with. It is the portion of software that does not come in direct
+            contact with the users. The
+            parts and characteristics designers are indirectly accessed application. Activities, like writing
+            APIs, creating libraries, and working with system components without user interfaces or programming, are
+            also
+            included in
+            the backend.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{%endif%}
+
+
+{%endblock%}

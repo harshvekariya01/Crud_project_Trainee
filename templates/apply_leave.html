@@ -1,0 +1,43 @@
+{%extends 'base.html'%}
+{%block content%}
+
+
+<div class="register">
+    <center>
+        <h2 class="alert alert-info" ><u>APPLY LEAVE FORM</u></h2>
+    </center><br>
+    <form action="/userapplyleave/{{request.user.id}}" method="post">
+        {% csrf_token %}
+        <div class="container col-5"> 
+            <div  class="row">
+        <div class="mb-3" >
+            <label for="exampleInputemail1" class="form-label"><b style="color: aliceblue;">Username:</b></label>
+            <input type="email" class="form-control" id="email" name="email" value="{{data.email}}" disabled>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"><b style="color: aliceblue;">Start Date:</b></label>
+            <input type="date" class="form-control" id="startdate" name="startdate" placeholder="Enter Start Date">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"><b style="color: aliceblue;">End Date:</b></label>
+            <input type="date" class="form-control" id="enddate" name="enddate" placeholder="Enter End Date">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"><b style="color: aliceblue;">Leave Reason:</b></label>
+            <textarea class="form-control" id="reason" name="reason" placeholder="Enter Leave Reason"></textarea>
+        </div>
+        </br></br></div></div>
+        <div class="d-grid gap-2">
+
+            <center> <button type="submit" class="btn btn-primary">Apply</button></center>
+
+        </div>
+    </form>
+
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+
+</div>
+
+
+
+{%endblock%}

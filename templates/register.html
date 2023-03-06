@@ -1,0 +1,94 @@
+{%extends 'base.html'%}
+{%block content%}
+
+{%for message in messages%}
+<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="btn-close"
+    data-bs-dismiss="alert"></button>
+    {{message}}
+</div>
+{%endfor%}
+<div class="register">
+    <center>
+        <h2 class="alert alert-info"><u>REGISTER FORM</u></h2>
+    </center><br>
+    <form method="post" action="{%url 'employee:userregister'%}" id="mydiv">
+        {% csrf_token %}
+        <div class="container col-5">
+            <div class="row">
+                <div class="mb-3 ">
+                    <label for="firstname" class="form-label" style="color: aliceblue;"><b>firstname:</b></label>
+                    <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter Firstname">
+                        <h6 class="validation1" hidden >*plz, enter firstname</h6>
+                </div>v
+               
+                <div class="mb-3" >
+                    <label for="lastname" class="form-label" style="color: aliceblue;"><b>lastname:</b></label>
+                    <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter Lastname" onclick="myFunction1()">
+                    <P class="validation2" hidden>*plz, enter lastname</P>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="email" class="form-label" style="color: aliceblue;"><b>email:</b></label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" onclick="myFunction2()">
+                    <P class="validation3" hidden >*plz, enter email</P>
+                </div>
+                
+                <div class="mb-3 ">
+                    <label for="password" class="form-label"style="color: aliceblue;"><b>password:</b></label>
+                    <input type="password" class="form-control" id="password" name="password"placeholder="Enter Password" onclick="myFunction3()">
+                    <P class="validation4" hidden>*plz, enter password</P>
+                </div>
+            </div>
+        </div>
+
+        <center> <button type="submit" class="btn btn-primary">Submit</button></center>
+
+<script defer>
+function myFunction1(){
+    var fillfirst = document.getElementById("firstname")
+    var filllast = document.getElementById("lastname")
+    console.log(typeof(filllast.value))
+    if(fillfirst.value === '' )
+    {
+        document.getElementsByClassName('validation1')[0].hidden = false;
+    }
+    else
+    {
+        document.getElementsByClassName('validation1')[0].hidden = true;
+    }
+}
+
+function myFunction2(){
+    var filllast = document.getElementById("lastname")
+    var fillemail = document.getElementById("email")
+    console.log(typeof(fillemail.value))
+    if(filllast.value === '' )
+    {
+        document.getElementsByClassName('validation2')[0].hidden = false;
+    }
+    else
+    {
+        document.getElementsByClassName('validation2')[0].hidden = true;
+    }
+}
+
+function myFunction3(){
+    var fillemail = document.getElementById("email")
+    var fillpassword = document.getElementById("password")
+    console.log(typeof(fillpassword.value))
+    if(fillemail.value === '' )
+    {
+        document.getElementsByClassName('validation3')[0].hidden = false;
+    }
+    else
+    {
+        document.getElementsByClassName('validation3')[0].hidden = true;
+    }
+}
+</script>
+
+</form>
+</br></br></br></br></br></br></br>
+
+
+{%endblock%}

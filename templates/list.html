@@ -1,0 +1,63 @@
+{%extends 'base.html'%}
+{%block content%}
+
+<head>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      text-align: left;
+      padding: 8px;
+      color: rgb(223, 223, 234);
+    }
+
+    .list {
+      background-image: url('/static/image/dark2022.webp');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+  </style>
+</head>
+
+<body class="list">
+  {%if request.user.is_authenticated%}
+  <center>
+    <h1 class="alert alert-info"><u>{{request.user.first_name}} {{request.user.last_name}}</u></h1>
+  </center>
+  {%endif%}</br>
+  <center><a href="{%url 'employee:userleave'%}" class="btn btn-primary">Leave Details</a></center></br>
+
+  <table>
+    <tr>
+      <th>No.</th>
+      <th>username</th>
+      <th>firstname</th>
+      <th>lastname</th>
+      <th>email</th>
+      <th>Action</th>
+    </tr>
+    {%for i in data%}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{i.username}}</td>
+      <td>{{i.first_name}}</td>
+      <td>{{i.last_name}}</td>
+      <td>{{i.email}}</td>
+      <td>
+        <a class="btn btn-primary" href="/userupdate/{{i.id}}">EDIT</a>
+        <a class="btn btn-danger" href="/userdelete/{{i.id}}">DELETE</a>
+      </td>
+      <td>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  <br /></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+</body>
+{%endblock%}

@@ -1,0 +1,63 @@
+{%extends 'base.html'%}
+{%block content%}
+<head>
+<style>
+table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      text-align: left;
+      padding: 8px;
+      color: rgb(223, 223, 234);
+    }
+
+    .leave {
+      background-image: url('/static/image/dark2022.webp');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+</style>
+</head>
+
+
+
+
+<body class="leave">  
+
+<center><h1 class="alert alert-info"><u>USER'S LEAVE</u></h1></center>
+<center><a href="{%url 'employee:userlist'%}"  class="btn btn-primary">User Details</a></center>
+</br>
+
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Leave date</th>
+    <th>End date</th>
+    <th>Total leave</th>
+    <th>Remaining Leave</th>
+    <th>Status</th>
+    
+  </tr>
+  {% for i in leavedata %}
+  <tr>
+    <td>{{i.user}}</td>
+    <td>{{i.start_date}}</td>
+    <td>{{i.end_date}}</td>
+    <td>{{i.total_leave}}</td>
+    <td>{{i.remaining_leave}}</td>
+    <td>{{i.approved}}</td>
+  </tr>
+  {% endfor %}
+
+
+</table>
+
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+</body>
+{%endblock%}

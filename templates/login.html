@@ -1,0 +1,46 @@
+{%extends 'base.html'%}
+{%block content%}
+{%for message in messages%}
+<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="btn-close"
+data-bs-dismiss="alert"></button>
+    {{message}}
+</div>
+{%endfor%}
+
+<div class="login">
+    <center>
+        <h2 class="alert alert-info"><u>LOGIN FORM</u></h2>
+    </center><br>
+    <form action="{%url 'employee:userlogin'%}" method="post">
+        {% csrf_token %}
+        <div class="container col-5">
+            <div  class="row">
+        <div class="mb-3 ">
+            <label for="exampleInputemail1" class="form-label"><b style="color: aliceblue;">Email:</b></label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Enter Email">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"><b style="color: aliceblue;">password:</b></label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password">
+        </div>
+        </br></br></div></div>
+        <div class="d-grid gap-2">
+
+            <center> <button type="submit" class="btn btn-primary">Login</button></center>
+        </div>
+    </form>
+
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+{%endblock%}
